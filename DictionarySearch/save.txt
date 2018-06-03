@@ -1,0 +1,4 @@
+cookie: brown sugar fruit
+apple: red fruit
+duck: yellow animal
+mango: bangin fruit

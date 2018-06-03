@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AdrianSmith_DegreesOfSeperation/AdrianSmith_DegreesOfSeperation.iml" filepath="$PROJECT_DIR$/AdrianSmith_DegreesOfSeperation/AdrianSmith_DegreesOfSeperation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AdrianSmith_Four-WayMergeSort/AdrianSmith_Four-WayMergeSort.iml" filepath="$PROJECT_DIR$/AdrianSmith_Four-WayMergeSort/AdrianSmith_Four-WayMergeSort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BasicSortAlgsLab/BasicSortAlgsLab.iml" filepath="$PROJECT_DIR$/BasicSortAlgsLab/BasicSortAlgsLab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Four-WayHeap/Four-WayHeap.iml" filepath="$PROJECT_DIR$/Four-WayHeap/Four-WayHeap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Graphs_InClass/Graphs_InClass.iml" filepath="$PROJECT_DIR$/Graphs_InClass/Graphs_InClass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Heaps_InClass/Heaps_InClass.iml" filepath="$PROJECT_DIR$/Heaps_InClass/Heaps_InClass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/IT334Projects.iml" filepath="$PROJECT_DIR$/.idea/IT334Projects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AdrianSmith_RuntimeAnalysis/RuntimeAnalysis.iml" filepath="$PROJECT_DIR$/AdrianSmith_RuntimeAnalysis/RuntimeAnalysis.iml" />
+    </modules>
+  </component>
+</project>
