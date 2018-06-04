@@ -5,6 +5,8 @@ import graph.ActorMovieGraph;
 import java.io.*;
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 public class console {
     public static void main(String[] args) {
         Scanner console = new Scanner(System.in);
@@ -18,11 +20,12 @@ public class console {
         graph = populateGraph(choice);
 
 
-        System.out.print("Enter a source actor(Last name, First Name: ");
+        System.out.print("Enter a source actor(Last name, First Name):  ");
         String srcActor = console.nextLine();
 
-        graph.getDetails(srcActor);
+        //graph.getDetails(srcActor);
 
+        System.out.println(graph.graph().toString());
 
 
     }
@@ -38,7 +41,7 @@ public class console {
                 System.out.println("2. 300_actors_50_movies.txt");
                 System.out.println("3. 900_actors_100_movies.txt\n");
 
-                choice = console.nextInt();
+                choice = parseInt(console.nextLine());
 
                 if(choice <= 3 && choice >= 1)
                     valid = true;
@@ -67,7 +70,7 @@ public class console {
         }catch(FileNotFoundException e){
             System.out.println("Something went wrong... Maybe the path to the files on line 38 is wrong?");
         }catch(IOException f){
-            System.out.println("Something went wrong reading the file...");
+            System.out.println("Something went wrong reading the file..." + f.getMessage());
         }
 
         return graph;

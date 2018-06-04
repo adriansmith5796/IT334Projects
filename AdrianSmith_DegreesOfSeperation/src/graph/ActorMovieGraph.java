@@ -15,7 +15,7 @@ public class ActorMovieGraph {
         table = new HashMap<>();
         String actorLine;
         BufferedReader buffer = new BufferedReader(file);
-
+        buffer.mark(1000000);
         // BUILDS INDEX AND POINTS STRINGS TO INDICES
         while ((actorLine = buffer.readLine()) != null) {
             String[] lineContent = actorLine.split(" \\| ");
@@ -30,13 +30,15 @@ public class ActorMovieGraph {
             keys[table.get(name)] = name;
 
         graph = new Graph(table.size());
-        buffer = new BufferedReader(file);
+        buffer.reset();
         while ((actorLine = buffer.readLine()) != null) {
             String[] lineContent = actorLine.split(" \\| ");
+            System.out.println("READING " + lineContent[0]);
             int vertex = table.get(lineContent[0]);
             for (int i = 1; i < lineContent.length; i++)
                 graph.addEdge(vertex, table.get(lineContent[i]));
         }
+        buffer.close();
     }
 
     public boolean contains(String name)    {   return table.containsKey(name); }
@@ -50,8 +52,32 @@ public class ActorMovieGraph {
     public String getDetails(String srcActor) {
         String result = srcActor + ": 0";
         BFSPaths paths = new BFSPaths(graph, indexOf(srcActor));
-        
+
 
         return "";
     }
+
+    public Map<String, Integer> generateActorNumbers(String actorSource){
+
+
+
+        return null;
+    }
+
+    public String toString(){
+        String result = "";
+
+        for(int i = 0; i < keys.length; i++){
+            result += i + ": " + keys[i] + "\n";
+        }
+
+        return result;
+
+        //return result;
+    }
 }
+
+
+
+
+

@@ -25,4 +25,20 @@ public class Graph {
 
     public int V()  {   return this.V;  }
     public int E()  {   return this.E;  }
+
+    public String toString(){
+        String result = V + " vertices, " + E + " edges\n";
+
+        for(int v = 0; v < V; v++){
+            result += v + ": ";
+            for(int w : this.adj(v)){
+                result += w + " ";
+            }
+            result += "\n";
+        }
+
+
+
+        return result;
+    }
 }
