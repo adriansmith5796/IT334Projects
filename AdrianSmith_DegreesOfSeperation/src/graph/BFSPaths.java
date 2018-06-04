@@ -37,14 +37,14 @@ public class BFSPaths {
         return marked[vertex];
     }
 
-    public Iterable<Integer> pathTo(int vertex){
-        if(!hasPathTo(vertex))  return null;
+    public int pathTo(int vertex){
+        if(vertex < 0 || !hasPathTo(vertex))  return 0;
+        int num = 0;
 
-        Stack<Integer> path = new Stack<>();
         for(int x = vertex; x != src; x = edgeTo[x])
-            path.push(x);
-        path.push(src);
-        return path;
+            num++;
+
+        return (num - 1) / 2;
     }
 
 }

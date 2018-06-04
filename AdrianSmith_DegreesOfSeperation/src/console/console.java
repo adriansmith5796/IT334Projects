@@ -3,6 +3,7 @@ package console;
 import graph.ActorMovieGraph;
 
 import java.io.*;
+import java.util.Map;
 import java.util.Scanner;
 
 import static java.lang.Integer.parseInt;
@@ -25,8 +26,14 @@ public class console {
 
         //graph.getDetails(srcActor);
 
-        System.out.println(graph.graph().toString());
-
+        //System.out.println(graph.graph().toString());
+        try {
+            for (Map.Entry<String, Integer> actor : graph.generateActorNumbers(srcActor).entrySet()) {
+                System.out.println(actor.getKey() + ": " + actor.getValue());
+            }
+        }catch(NullPointerException e){
+            System.out.println("That actor is not in the file you selected!");
+        }
 
     }
 
@@ -37,13 +44,17 @@ public class console {
         while(!valid) {
             try {
                 System.out.println("Please choose one of the following files: ");
-                System.out.println("1. 20_actors_100_movies.txt");
-                System.out.println("2. 300_actors_50_movies.txt");
-                System.out.println("3. 900_actors_100_movies.txt\n");
+                System.out.println("1. 20_actors_15_movies.txt");
+                System.out.println("2. 20_actors_100_movies.txt");
+                System.out.println("3. 50_actors_5_movies.txt");
+                System.out.println("4. 300_actors_5_movies.txt");
+                System.out.println("5. 300_actors_15_movies.txt");
+                System.out.println("6. 300_actors_50_movies.txt");
+                System.out.println("7. 900_actors_100_movies.txt\n");
 
                 choice = parseInt(console.nextLine());
 
-                if(choice <= 3 && choice >= 1)
+                if(choice <= 7 && choice >= 1)
                     valid = true;
             } catch (Exception e) {
                 System.out.println("Please enter a number that corresponds to the choices.");
@@ -55,13 +66,21 @@ public class console {
 
     public static ActorMovieGraph populateGraph(int choice){
         String file = "AdrianSmith_DegreesOfSeperation/resources/";
-        if(choice == 1) {
+
+        if(choice == 1)
+            file += "20_actors_15_movies.txt";
+        else if(choice == 2)
             file += "20_actors_100_movies.txt";
-        } else if(choice == 2) {
+        else if(choice == 3)
+            file += "50_actors_5_movies.txt";
+        else if(choice == 4)
+            file += "300_actors_5_movies.txt";
+        else if(choice == 5)
+            file += "300_actors_15_movies.txt";
+        else if(choice == 6)
             file += "300_actors_50_movies.txt";
-        }else if(choice == 3) {
-            file += "900_actors_100_movies";
-        }
+        else if(choice == 7)
+            file += "900_actors_100_movies.txt";
 
         ActorMovieGraph graph = null;
 
@@ -70,7 +89,7 @@ public class console {
         }catch(FileNotFoundException e){
             System.out.println("Something went wrong... Maybe the path to the files on line 38 is wrong?");
         }catch(IOException f){
-            System.out.println("Something went wrong reading the file..." + f.getMessage());
+            System.out.println("Something went wrong reading the file... " + f.getMessage());
         }
 
         return graph;
