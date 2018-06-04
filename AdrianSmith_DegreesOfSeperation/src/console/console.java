@@ -1,3 +1,10 @@
+/*
+    Adrian Smith
+    IT334 Algorithms
+    This program demonstrates degrees of seperation between actors using the movies they acted in.
+    The console program loads in a file specified by the user through a numerical input. Reads in the file they selected
+    and constructs an adjacency list to represent a graph data structure. 
+ */
 package console;
 
 import graph.ActorMovieGraph;
@@ -24,13 +31,15 @@ public class console {
         System.out.print("Enter a source actor(Last name, First Name):  ");
         String srcActor = console.nextLine();
 
-        //graph.getDetails(srcActor);
-
-        //System.out.println(graph.graph().toString());
-        try {
-            for (Map.Entry<String, Integer> actor : graph.generateActorNumbers(srcActor).entrySet()) {
+        try{
+            Map<String, Integer> map = graph.generateActorNumbers(srcActor);
+            int totalNum = 0;
+            for (Map.Entry<String, Integer> actor : map.entrySet()) {
                 System.out.println(actor.getKey() + ": " + actor.getValue());
+                totalNum += actor.getValue();
             }
+
+            System.out.println("The average \"Actor Number\" is: " + (totalNum / map.keySet().size()));
         }catch(NullPointerException e){
             System.out.println("That actor is not in the file you selected!");
         }

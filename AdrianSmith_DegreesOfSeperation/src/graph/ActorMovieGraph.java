@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-
+/**
+ *
+ */
 public class ActorMovieGraph {
     private HashMap<String, Integer> table; // Index of Actors to their index
     private String[] keys; //
